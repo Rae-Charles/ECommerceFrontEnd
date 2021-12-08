@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import TitleBar from './TitleBar/TitleBar';
+import Login from './Login/Login';
 
 class App extends Component{
     constructor(props){
@@ -11,7 +12,13 @@ class App extends Component{
     render(){
         return (
             <div className="container-fluid">
-                <TitleBar />
+                <div><TitleBar />
+                <br></br>
+                    <Login />
+                    <br></br>
+                    <div className="create"></div>
+                    <center><h6> Don't have an account? </h6><a href="create">Sign Up</a></center>
+                    </div>    
             </div>
         )
     }    
