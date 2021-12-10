@@ -45,4 +45,17 @@ div{
 .bod{
     background-color: goldenrod;
 }
+th,tr, td {
+    border: 1px solid rgb(93, 94, 5);
+    padding: 7px 5px;
+}
+
+table, thead{
+    border-collapse: collapse;
+    border: 2px solid rgb(9, 119, 146);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: .8rem;
+    
+}
 

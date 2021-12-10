@@ -1,5 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import axios from 'axios';
+import './HomePage.css'
 // import React, {useContext, useState, useReducer, useEffect} from 'react'
 
 
@@ -62,7 +63,7 @@ function HomePage(){
     return (
         <div>
             <div className='sybd'>
-            <table>
+            <table className='center'>
                 <thead>
                 <tr>
                 <th>Name</th>
