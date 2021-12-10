@@ -1,27 +1,27 @@
 import React from 'react';
-import './TitleBar.css';
+import { Link } from 'react-router-dom';
+import './TitleBar.css'
 
-function TitleBar(props){
+function TitleBar(){
     return (
-        <div className="row row-space">
-            <div className="col-md-12" style={{padding: 0}}>
-                <div className="titlebar-nav">
-                    <div><h1>Bicycle World</h1>
-                    <ul>
-                    <div class="topnav">
-                        <li><a class="active" href="home">Home</a></li>
-                        <li><a href="list">List Bike</a></li>
-                        <div class="topnav-right">
-                            <li><a href="search">Search</a></li>
-                            <li><a href="logout">Logout</a></li>
-                        </div>
-                    </div>
-                    </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+        <nav>
+            <ul>
+                <Link to='/'>
+                    <li>Main Page</li>
+                </Link>
+                <Link to='/homepage'>
+                    <li>Home Page </li>
+                        </Link>
+                <Link to='/newuser'>
+                    <li>Register user</li>
+                </Link>
+                <Link to='/shoppingcart'>
+                    <li>Shopping Cart</li>
+                </Link>
+
+            </ul>
+            </nav>
+    );
 }
 
 export default TitleBar;
