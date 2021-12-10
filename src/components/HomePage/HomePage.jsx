@@ -1,49 +1,87 @@
-import React from 'react';
+import React, { useState , useEffect} from 'react';
+import axios from 'axios';
+// import React, {useContext, useState, useReducer, useEffect} from 'react'
+
+
+// const Wishlist=()=>{
+
+// const product=[
+//     {Name: "Men's Mountain Bike", price: 350, unit:1},
+//     {Name: "Men's Road Bike", price: 300, unit:1},
+//     {Name: "Woman's Mountain Bike", price: 150, unit:1},
+//     {Name: "Woman's Road Bike", price: 1250, unit:1},
+//     {Name: "Boys's Mountain Bike", price: 100, unit:1},
+//     {Name: "Girls's Mountain Bike", price: 100, unit:1},
+// ]
+
+// const [total, setTotal]=useState(0)
+// const [qty, setQty]=useState(1) 
+
+// const handleClick=e=>{
+//     setTotal(prevState=>prevState.price),
+//     setQty(e.unit+1)
+//     console.log(e)
+// };
+
+//     return(
+//         <div>
+//             {product.map((p))=>
+//             <li key={p.name}{p.price}
+//         <button onClick={()=>handleClick(p)}>Add to cart</button>
+//         &nbsp;{qty}
+//         </li>)
+//             }
+//             Price: {total}
+//         </div>
+//     )
+
+// }
+
 
 
 function HomePage(){
+    const [products, setProducts] = useState([])
+
+
+    //useEffect determines the first thing that will run when the page laods
+    useEffect(()=>{
+        getProducts()
+    },[])
+
+    const getProducts = async () =>{
+        let response = await axios.get('https://localhost:44394/api/products')
+        //setProduct is talking to products(variable on like 43) and tells it what its value should be
+        setProducts(response.data)
+    }
+
+    const addToCart = (product) =>{
+        console.log(product)
+        //post to shopping cart request will go here
+    }
+
     return (
         <div>
             <div className='sybd'>
-                
-                    
-                
-            <center><h1>Sell Your Bike</h1></center>
-                    <form>
-                    <center><label for="Category">Category:</label><input type="text"></input></center>
-                        <center><label for="Type">Type:</label><input type="text"></input></center>
-                        <center><label for="Price">Price:</label><input type="number"></input></center>
-                        <center><button>Submit:</button></center>
-                    </form>
-
-                    <h1>Your Bikes for Sale:</h1>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <div>
-                    <h1>Bikes for sale:</h1>
-                    <br />
-                    <br />
-                    <h4>Name: Men's Mountain Bike | Product ID: MTN250 | Price: $350 | Description: Men's 32" Bike |</h4>
-                    <button>Add to Cart</button>
-                    <h4>Name: Men's Road Bike | Product ID: RD200 | Price: $300 | Description: Men's 30" Bike |</h4>
-                    <button>Add to Cart</button>
-                    <h4>Name: Woman's Mountain Bike | Product ID: MTN100 | Price: $150 | Description: Woman's 24" Mountain Bike |</h4>
-                    <button>Add to Cart</button>
-                    <h4>Name: Woman's Road Bike | Product ID: RD100 | Price: $125 | Description: Woman's 22" Road Bike |</h4>
-                    <button>Add to Cart</button>
-                    <h4>Name: Boys's Mountain Bike | Product ID: RD75 | Price: $100 | Description: Boys's 15" Mountain Bike |</h4>
-                    <button>Add to Cart</button>
-                    <h4>Name: Girls's Mountain Bike | Product ID: RD75| Price: $100 | Description: Girls's 15" Mountain Bike |</h4>
-                    <button>Add to Cart</button>
-                    
-                    
-                    
-                    
-                   
-                    </div>
+            <table>
+                <thead>
+                <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                </tr>
+            </thead>
+                {products.map((element)=>
+                <tbody>
+                    <tr>
+                    <td> {element.name} </td>
+                    <td> {element.description}</td>
+                    <td> {element.price}</td>
+                    <button onClick={()=>addToCart(element.productId)}>Add to cart</button>
+                    </tr>
+               </tbody> 
+               )}
+               </table>
+            
             </div>
         </div>
     )

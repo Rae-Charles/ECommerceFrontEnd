@@ -3,6 +3,11 @@ import './Create.css'
 
 
 function Create(){
+
+    //look back at examples of how to post using axios
+    //use the register user postman example as a reference of what data you need to post
+    //first name, last name, username, password, email, phone number
+
     return (
         
         <div className="create">
