@@ -1,5 +1,36 @@
 import React from 'react';
+import useState from 'react'
 
+    
+  
+
+    const Login = () => {
+        async function send(values) {
+            const response = await axios.post("https://localhost:44394/api/authentication", values);
+            if (response.data.token) {
+                localStorage.setItem('token', response.data.token);
+                window.location.reload();
+            }
+        }
+    
+        return send;
+    }
+
+    const Form = (callback) => {
+        const [formValues, setFormValues] = useState({});
+    
+        const handleChange = (event) => {
+            event.persist();
+    
+            setFormValues({ ...formValues, [event.target.name]: event.target.value })
+        }
+    
+        const handleSubmit = (event) => {
+            event.preventDefault();
+            callback();
+        }
+    
+        return { formValues, handleChange, handleSubmit };
 
 function Login(){
     return (
@@ -16,11 +47,9 @@ function Login(){
     )
 }
 
-export default Login;
 
 
 
+}
 
-
-
-
+export default Login; 
