@@ -33,12 +33,11 @@ function HomePage(){
                     </tr>
                     
                         {products.map((element)=>
-                        
                             <tr className='trow2'>
                             <td className='tname'> {element.name} </td>
                             <td className='tname'> {element.description}</td>
                             <td className='tname'> {element.price}</td>
-                            <button className='addbutton' onClick={()=>addToCart(element.productId)}>Add to cart</button>
+                            <button className='addbutton' onClick={()=>addToCart(element.productId)}>Add to Cart</button>
                             </tr>
                      
                     )}

@@ -1,54 +1,56 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import { useEffect } from 'react';
-// import './shoppingcart.css'
+import React from 'react';
+import useState from 'react'
+import axios from 'axios';
 
-
-// const ShoppingCart = (props) => {
-
-//     const [total, setCartTotal] = useState (0);
-
-//     useEffect(() => {
-//         props.getProductsInCart();
-//         getCartTotal(props.user.id);
-//     },    [props.productsInCart])
-
-//     async function getCartTotal (userId){
-//         try{
-//             const jwt = localStorage.getItem('token');
-//             let response = await axios.get('https://localhost:44394/api/authentication'), {headers: {Authorization: 'Bearer' + jwt}});
-//             setCartTotal(response.data)
-//         }
-//         try{
-//             console.log('Error in getCartTotal');
-//         }
-
-//     finally
     
+// function shoppingcart(){
 
-// Return(
-//     {props.productsInCart.map(product => {
-//         return(
-//                 <div=>
-//                 {product.product.name}
-//                 </div>
-//                 <div>
-//                 {product.product.description}
-//                 </div>
-//                 <div>
-//                 Price: ${product.product.price}
-//                 </div>
-//                 <div>
-//                 Category: {product.product.category}
-//                 </div>
-//                 <div>
-//                 Quantity: {product.quantity}
-//                 </div>
-                    
-           
+    export default class ShoppingCart extends React.Component {
+        state = {
+            userName: '',
+            ProductId: '',
+            Quantity: '',
+          }
             
-//         )
-//     }
+        
+          handleChange = event => {
+            this.setState({ 
+                [event.target.name] : event.target.value
+            });
+          }
+              
+        
+          handleSubmit = async event => {
+            event.preventDefault();
+             
+        
+            await axios ({
+                method:"post", 
+                url:"https://localhost:44394/api/authentication/login",
+                data:{          
+                    "userId": this.state.userId,
+                    "ProductId": this.state.ProductId,
+                    "Quantity" : this.state.Quantity,                            
+                }
+            })
+          }
 
-// )
-// }
+          render(){
+            return (
+                        <div>
+                            <body>
+                            <center><h3> Shopping Cart </h3></center>
+                                <form onSubmit={this.handleSubmit}>
+                                <center><label for="userName">User Name:</label><input name="userName" type="text" value={this.state.userName} onChange={this.handleChange}></input></center>
+                                <center><label for="password">Password:</label><input name="password" type="password" value={this.state.password} onChange={this.handleChange}></input></center>
+                                <center><button type="submit">Login</button></center>
+                                </form>
+                                </body>
+                        </div>
+                    )
+                }
+                                    
+            }
+
+
+

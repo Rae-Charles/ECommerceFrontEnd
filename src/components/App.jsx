@@ -4,9 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Create from './Create/Create';
 import HomePage from './HomePage/HomePage';
 import Login from './Login/Login';
-// import ShoppingCart from './ShoppingCart/ShoppingCart';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
 import TitleBar from './TitleBar/TitleBar';
-
 
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
           <Route path="/" exact element={<Create/>} />
           <Route path="/home" element={<HomePage/>} />
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/shoppingcart" element={<ShoppingCart/>} /> */}
+          <Route path="/shoppingcart" element={<ShoppingCart/>} />
         </Routes>
       </div>
     );
