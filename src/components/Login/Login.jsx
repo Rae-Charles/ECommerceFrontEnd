@@ -36,7 +36,6 @@ import axios from 'axios';
         state = {
             userName: '',
             password: '',
-           
           }
             
         
@@ -47,7 +46,7 @@ import axios from 'axios';
           }
               
         
-          onSubmit = async event => {
+          handleSubmit = async event => {
             event.preventDefault();
              
         
@@ -56,13 +55,13 @@ import axios from 'axios';
                 url:"https://localhost:44394/api/authentication/login",
                 data:{          
                     "userName": this.state.userName,
-                    "password": this.state.password,
-                    
-                    
+                    "password": this.state.password,                               
                 }
             })
+            .then(response => localStorage.setItem('token', response.data.token));
             window.location="/home"
           }
+
           render(){
             return (
                         <div>

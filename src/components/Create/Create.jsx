@@ -1,7 +1,6 @@
 import React from 'react';
 import './Create.css';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
 
 
 export default class Create extends React.Component {
