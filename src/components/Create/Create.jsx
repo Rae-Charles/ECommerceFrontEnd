@@ -37,7 +37,7 @@ export default class Create extends React.Component {
                 "phoneNumber": this.state.phoneNumber
             }
         })
-        window.location="/newuser"
+        window.location="/login"
       }
     
 render(){
