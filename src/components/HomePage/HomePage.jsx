@@ -25,11 +25,7 @@ function HomePage(){
 
     return (
         <div>
-            
-                
-            
-                <table>
-                    
+                <table> 
                     <tr className='trow'>
                     <th className='tname'>Name</th>
                     <th className='tname'>Description</th>
@@ -47,12 +43,7 @@ function HomePage(){
                      
                     )}
                     </table>
-                    
-                    
-                    
                 </div>
-               
-            
             )
             
         }

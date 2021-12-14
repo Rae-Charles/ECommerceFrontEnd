@@ -18,8 +18,8 @@
 
 .shoppingcart{
   font-size: xx-large;
-  color: green;
-  
+  color: rgb(0, 0, 0);
+  list-style-type: none;
 }
 
 .cnu{

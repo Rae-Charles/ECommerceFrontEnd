@@ -11,7 +11,6 @@ import axios from 'axios';
                 window.location.reload();
             }
         }
-    
         return send;
     }
 
@@ -21,7 +20,6 @@ import axios from 'axios';
     
         const handleChange = (event) => {
             event.persist();
-    
             setFormValues({ ...formValues, [event.target.name]: event.target.value })
         }
     

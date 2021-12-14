@@ -19,7 +19,6 @@ function App() {
           <Route path="/newuser" element={<Login />} />
           {/* <Route path="/shoppingcart" element={<ShoppingCart/>} /> */}
         </Routes>
-        
       </div>
     );
   }

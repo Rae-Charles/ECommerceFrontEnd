@@ -8,10 +8,7 @@ function TitleBar(){
     return (
         <nav>
             <ul>
-               
-                
-                
-                
+
                 <Link className='scart' to='/shoppingcart'>
                     <li className='shoppingcart'>Shopping Cart</li>
                 </Link>

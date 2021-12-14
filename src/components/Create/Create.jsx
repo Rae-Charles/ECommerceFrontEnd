@@ -1,6 +1,7 @@
 import React from 'react';
 import './Create.css';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 
 export default class Create extends React.Component {
@@ -34,11 +35,9 @@ export default class Create extends React.Component {
                 "password": this.state.password,
                 "email": this.state.email,
                 "phoneNumber": this.state.phoneNumber
-
             }
         })
-        
-
+        window.location="/newuser"
       }
     
 render(){
@@ -53,14 +52,12 @@ return (
                     <center><label for="password">Create Password:</label><input name="password" type="password" value={this.state.password} onChange={this.handleChange}></input></center>
                     <center><label for="email">Enter Email Address:</label><input name="email" type="text" value={this.state.email} onChange={this.handleChange}></input></center>
                     <center><label for="phoneNumber">Enter Phone Number:</label><input name="phoneNumber" type="text" value={this.state.phoneNumber} onChange={this.handleChange}></input></center>
-                    <center><input type="submit"/></center>
+                    <center><button type="submit">Submit</button></center>
                     </form>
                     </body>
             </div>
-        
-    )
-}    
-
+        )
+    }    
 }
 
 
