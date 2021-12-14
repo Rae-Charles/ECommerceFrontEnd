@@ -3,11 +3,6 @@ import axios from 'axios';
 import './HomePage.css'
 
 
-
-
-
-
-
 function HomePage(){
     const [products, setProducts] = useState([])
 
@@ -63,12 +58,7 @@ function HomePage(){
         }
                  
              
-                
-                
-                
-                
             
-
 export default HomePage;
 
 // import React, {useContext, useState, useReducer, useEffect} from 'react'

@@ -1,9 +1,8 @@
 import React from 'react';
 import useState from 'react'
+import axios from 'axios';
 
     
-  
-
     const Login = () => {
         async function send(values) {
             const response = await axios.post("https://localhost:44394/api/authentication", values);
@@ -15,6 +14,7 @@ import useState from 'react'
     
         return send;
     }
+
 
     const Form = (callback) => {
         const [formValues, setFormValues] = useState({});
@@ -32,9 +32,8 @@ import useState from 'react'
     
         return { formValues, handleChange, handleSubmit };
 
+
 function Login(){
-
-
 
     return (
         <div>
@@ -47,12 +46,8 @@ function Login(){
                     </form>
             </div>
         </div>
-    )
+    )}
 }
 
-
-
-
-}
 
 export default Login; 

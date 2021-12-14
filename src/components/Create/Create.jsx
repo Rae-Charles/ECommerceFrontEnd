@@ -3,11 +3,6 @@ import './Create.css';
 import axios from 'axios';
 
 
-
-
-
-
-
 export default class Create extends React.Component {
     state = {
         firstName: '',
@@ -19,60 +14,46 @@ export default class Create extends React.Component {
       }
     
       handleChange = event => {
-        this.setState({ firstName: event.target.value, 
-          lastName: event.target.value, 
-          userName: event.target.value,
-          password: event.target.value,
-          email: event.target.value,
-          phoneNumber: event.target.value});
+        this.setState({ 
+            [event.target.name] : event.target.value
+        });
       }
           
     
-      handleSubmit = event => {
+      handleSubmit = async event => {
         event.preventDefault();
-      
-      
+         
     
-        const user = {
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          userName: this.state.userName,
-          password: this.state.password,
-          email: this.state.email,
-          phoneNumber: this.state.phoneNumber
-        };
-        
-    
-        axios.post(`https://localhost:44394/api/authentication`, 
-        { user })
-          .then(res => {
-            console.log(res);
-            console.log(res.data);
-          })
+        await axios ({
+            method:"post", 
+            url:"https://localhost:44394/api/authentication",
+            data:{          
+                "firstName": this.state.firstName,
+                "lastName": this.state.lastName,
+                "userName": this.state.userName,
+                "password": this.state.password,
+                "email": this.state.email,
+                "phoneNumber": this.state.phoneNumber
+
+            }
+        })
         
 
       }
     
-    
-
-
 render(){
 return (
-        
-        
             <div>
-                
-                <body >
-                
+                <body>
                 <center><h3>Create New User</h3></center>
                     <form onSubmit={this.handleSubmit}>
-                    <center><label for="firstName">Enter First Name:</label><input type="text" onChange={this.handleChange}></input></center>
-                    <center><label for="lastName">Enter Last Name:</label><input type="text" onChange={this.handleChange}></input></center>
-                    <center><label for="userName">Enter User Name:</label><input type="text" onChange={this.handleChange}></input></center>
-                    <center><label for="Password">Create Password:</label><input type="password" onChange={this.handleChange}></input></center>
-                    <center><label for="Email">Enter Email Address:</label><input type="text" onChange={this.handleChange}></input></center>
-                    <center><label for="phoneNumber">Enter Phone Number:</label><input type="text" onChange={this.handleChange}></input></center>
-                    <center><input type="submit" /></center>
+                    <center><label for="firstName">Enter First Name:</label><input name="firstName" type="text" value={this.state.firstName} onChange={this.handleChange}></input></center>
+                    <center><label for="lastName">Enter Last Name:</label><input name="lastName" type="text" value={this.state.lastName} onChange={this.handleChange}></input></center>
+                    <center><label for="userName">Enter User Name:</label><input name="userName" type="text" value={this.state.userName} onChange={this.handleChange}></input></center>
+                    <center><label for="password">Create Password:</label><input name="password" type="password" value={this.state.password} onChange={this.handleChange}></input></center>
+                    <center><label for="email">Enter Email Address:</label><input name="email" type="text" value={this.state.email} onChange={this.handleChange}></input></center>
+                    <center><label for="phoneNumber">Enter Phone Number:</label><input name="phoneNumber" type="text" value={this.state.phoneNumber} onChange={this.handleChange}></input></center>
+                    <center><input type="submit"/></center>
                     </form>
                     </body>
             </div>
